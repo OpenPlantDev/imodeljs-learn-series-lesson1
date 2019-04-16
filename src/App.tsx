@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Hello, Button} from './components';
+import {Hello, Button, Toolbar} from './components';
+import { IToolbarButton } from './components/Toolbar/IToolbarButton';
 
 interface IState  {
   numMarks: number;
 }
 
-class App extends Component <{}, IState> {
+class App extends Component <any, IState> {
 
   state: IState = {numMarks: 0};
+  toolbar: IToolbarButton[]; 
+
+  constructor (props: any) {
+    super(props);
+    this.toolbar = [
+      {id: 0, label: '+', onClick: this.onIncrement},
+      {id: 1, label: '-', onClick: this.onDecrement}
+    ];
+  }
 
   onIncrement = () => {
     const numMarks = ++this.state.numMarks;
@@ -29,8 +39,12 @@ class App extends Component <{}, IState> {
         </header>
         <div>
           <Hello to="World" from="My React App" numMarks={this.state.numMarks} />  
-          <Button label="+" onClick={this.onIncrement} />
-          <Button label="-" onClick={this.onDecrement} />
+
+          <Toolbar buttons={this.toolbar} 
+          />
+
+          {/* <Button label="+" onClick={this.onIncrement} />
+          <Button label="-" onClick={this.onDecrement} /> */}
         </div>
       </div>
     );
