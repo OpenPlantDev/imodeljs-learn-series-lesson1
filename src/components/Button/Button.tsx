@@ -1,14 +1,17 @@
 import React from 'react';
+import './button.css';
 
-interface IProps {
+export interface IButtonProps {
   label: string;
   onClick: () => void;
-
+  disabled?: boolean;
 };
 
-export const Button = (props: IProps) => {
+export const Button = (props: IButtonProps) => {
   return (
-    <button onClick={props.onClick}>{props.label}</button>
+    <button className='button'
+            onClick={props.onClick} 
+            disabled={props.disabled}>{props.label}</button>
 
   );
 }
