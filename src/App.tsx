@@ -4,9 +4,7 @@ import './App.css';
 import {HelloWithMarks} from './components';
 
 
-class App extends Component <any> {
-
- // maxMarks = 5;
+class App extends Component {
 
   render() {
     console.log('Rendering App');
@@ -17,7 +15,6 @@ class App extends Component <any> {
         </header>
         <div>
           <HelloWithMarks to="World" from="My React App" maxMarks={5} /> 
-          <HelloWithMarks to="Steve" from="Richard" maxMarks={2} /> 
         </div>
       </div>
     );

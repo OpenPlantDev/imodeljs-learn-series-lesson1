@@ -24,12 +24,12 @@ export class HelloWithMarks extends Component <IProps, IState> {
   }
 
   onIncrement = () => {
-    const numMarks = ++this.state.numMarks;
+    const numMarks = this.state.numMarks+1;
     this.setState( {numMarks: numMarks} );
   }
 
   onDecrement = () => {
-    const numMarks = Math.max(--this.state.numMarks, 0);
+    const numMarks = Math.max(this.state.numMarks-1, 0);
     this.setState( {numMarks: numMarks} );
   }
 
